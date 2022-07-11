@@ -1,5 +1,8 @@
 @extends('header_footer.main')
 @section('main-container')
+<?php 
+echo'<pre>'; print_r($relation); die;
+?>
 <style>
 	.form-sty {
 		background: antiquewhite;

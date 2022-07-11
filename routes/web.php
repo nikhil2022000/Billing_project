@@ -19,12 +19,11 @@ use App\Http\Controllers\billingController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
-Route::get('desh', function () {
-    return view('Billing_file.Deshborade');
+Route::get('dashboard', function () {
+    return view('Billing_file.Dashboard');
 });
-Route::any('home',[billingController::class,'master_set']);
 Route::any('master_form',[billingController::class,'master_form']);
 
 Route::get('bill_categories', function () {
@@ -60,11 +59,11 @@ Route::any('emp_user',[billingController::class,'emp']);
 Route::get('branch', function () {
     return view('Billing_file.Branches');
 });
-Route::any('branch',[billingController::class,'branches']);
+Route::any('branch_add',[billingController::class,'branches']);
 
-Route::any('show',[billingController::class,'show']);
+
 //////////////////////////////////////////////////////////////////show master data in pop_up//////////////////////////////////////
-
+Route::any('show',[billingController::class,'show']);
 Route::any('popup/{id}',[billingController::class,'popup']);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////

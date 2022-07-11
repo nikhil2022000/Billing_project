@@ -94,81 +94,87 @@
                                     <lable id="3"></lable>
                                 </div>
                                 <div class="col-sm-3">
+                                    <lable><b>Service Type</b></lable>
+                                </div>
+                                <div class="col-sm-3">
+                                    <lable id="24"></lable>
+                                </div>
+                               
+							</div>
+                            <div class="row" style="padding: 5px; background: #eff4f4;">
+                            <div class="col-sm-3">
                                     <lable><b>Relationship No</b></lable>
                                 </div>
                                 <div class="col-sm-3">
                                     <lable id="4"></lable>
                                 </div>
-							</div>
-                            <div class="row" style="padding: 5px; background: #eff4f4;">
 								<div class="col-sm-3">
                                     <lable><b>Payment Units</b></lable>
                                 </div>
                                 <div class="col-sm-3">
                                     <lable id="5"></lable>
                                 </div>
-                                <div class="col-sm-3">
+                               
+							</div>
+                            <div class="row" style="padding: 5px;">
+                            <div class="col-sm-3">
                                     <lable><b>Payment Mode</b></lable>
                                 </div>
                                 <div class="col-sm-3">
                                     <lable id="6"></lable>
                                 </div>
-							</div>
-                            <div class="row" style="padding: 5px;">
 								<div class="col-sm-3">
                                     <lable><b>Plan Details</b></lable>
                                 </div>
                                 <div class="col-sm-3">
                                     <lable id="7"></lable>
                                 </div>
-                                <div class="col-sm-3">
+                               
+							</div>
+                            <div class="row" style="padding: 5px; background: #eff4f4;">
+                            <div class="col-sm-3">
                                     <lable><b>Operator</b></lable>
                                 </div>
                                 <div class="col-sm-3">
                                     <lable id="8"></lable>
                                 </div>
-							</div>
-                            <div class="row" style="padding: 5px; background: #eff4f4;">
 								<div class="col-sm-3">
                                     <lable><b>Bill Date</b></lable>
                                 </div>
                                 <div class="col-sm-3">
                                     <lable id="9"></lable>
                                 </div>
-                                <div class="col-sm-3">
+                               
+							</div>
+                            <div class="row" style="padding: 5px;">
+                            <div class="col-sm-3">
                                     <lable><b>Billing Cycle to</b></lable>
                                 </div>
                                 <div class="col-sm-3">
                                     <lable id="10"></lable>
                                 </div>
-							</div>
-                            <div class="row" style="padding: 5px;">
 								<div class="col-sm-3">
                                     <lable><b>Billing Cycle from</b></lable>
                                 </div>
                                 <div class="col-sm-3">
                                     <lable id="11"></lable>
                                 </div>
-                                <div class="col-sm-3">
+                               
+							</div>
+                            <div class="row" style="padding: 5px; background: #eff4f4;">
+                            <div class="col-sm-3">
                                     <lable><b>Grace Days</b></lable>
                                 </div>
                                 <div class="col-sm-3">
                                     <lable id="12"></lable>
                                 </div>
-							</div>
-                            <div class="row" style="padding: 5px; background: #eff4f4;">
 								<div class="col-sm-3">
                                     <lable><b>Due Date</b></lable>
                                 </div>
                                 <div class="col-sm-3">
                                     <lable id="13"></lable>
                                 </div>
-                                <div class="col-sm-3">
-                                    <lable><b>Billing Type</b></lable>
-                                </div>
-                                <div class="col-sm-3">
-                                    <lable id="14"></lable>
-                                </div>
+                                
 							</div>
                             <div class="row" style="padding: 5px;">
 								<div class="col-sm-3">
@@ -220,25 +226,27 @@
                                     <lable id="21"></lable>
                                 </div>
                                 <div class="col-sm-3">
+                                    <lable><b>Billing Type</b></lable>
+                                </div>
+                                <div class="col-sm-3">
+                                    <lable id="14"></lable>
+                                </div>
+                               
+							</div>
+                            <div class="row" style="padding: 5px;">
+                            <div class="col-sm-3">
                                     <lable><b>Montly Cr Limit</b></lable>
                                 </div>
                                 <div class="col-sm-3">
                                     <lable id="22"></lable>
                                 </div>
-							</div>
-                            <div class="row" style="padding: 5px;">
 								<div class="col-sm-3">
                                     <lable><b>Get Bill Details From ?</b></lable>
                                 </div>
                                 <div class="col-sm-3">
                                     <lable id="23"></lable>
                                 </div>
-                                <div class="col-sm-3">
-                                    <lable><b>Service Type</b></lable>
-                                </div>
-                                <div class="col-sm-3">
-                                    <lable id="24"></lable>
-                                </div>
+                               
 							</div>
 						</div>
 						<div class="modal-footer d-flex">
@@ -270,7 +278,6 @@
                        //alert(value.number);
                        $('#1').html(value.sr_no);
                        $('#2').html(value.number);
-                       $('.mo').html(value.number);
                        $('#3').html(value.assigned_to);
                        $('#4').html(value.relationship_no);
                        $('#5').html(value.payment_units);
@@ -292,7 +299,7 @@
                        $('#21').html(value.branch_location);
                        $('#22').html(value.monthly_cr_limit);
                        $('#23').html(value.get_billing_details_from);
-                       $('#24').html(value.grace_days);
+                       $('#24').html(value.service_type);
                       
                       
                });    

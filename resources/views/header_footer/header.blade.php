@@ -141,12 +141,13 @@
 										<li>
 											<a href="branch"><i class="icon-layout"></i>Branches</a>
 										</li>
+										<li>
+											<a href="show"><i class="icon-layout"></i>Master data</a>
+										</li>
 									</ul>
 									<ul class="tile-menu">
 										<li class="list-heading">Layouts</li>
-										<li>
-											<a href="starter-page.html"><i class="icon-layout"></i> Starter Page</a>
-										</li>
+										
                                         <li>
 											<a href="layout-tile-menu.html" class="current-page"><i class="icon-grid"></i> Tile Menu</a>
 										</li>

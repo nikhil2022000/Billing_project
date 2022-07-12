@@ -67,6 +67,11 @@ Route::any('show',[billingController::class,'show']);
 Route::any('popup/{id}',[billingController::class,'popup']);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
+Route::any('mini_master',[billingController::class,'mini_master']);
+
+Route::any('mini_insert',[billingController::class,'mini_insert']);
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

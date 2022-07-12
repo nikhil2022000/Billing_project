@@ -70,7 +70,7 @@
 													<div class="modal-header">
 														<h5 class="modal-title mo" id="exampleModalLargeTitle"></h5>
 														<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-													</div>
+						                </div>
 						<div class="modal-body">
 							<div class="row" style="padding: 5px; background: #eff4f4;">
 								<div class="col-sm-3">
@@ -278,6 +278,7 @@
                        //alert(value.number);
                        $('#1').html(value.sr_no);
                        $('#2').html(value.number);
+                       $('.mo').html(value.number);
                        $('#3').html(value.assigned_to);
                        $('#4').html(value.relationship_no);
                        $('#5').html(value.payment_units);

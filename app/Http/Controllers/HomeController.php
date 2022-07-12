@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $master= DB::table('master_data')->get();
+        $matt=json_decode(json_encode($master));
+        
+     //echo"<pre>";print_r($data);
+
         $da = DB::table('operator')->get();
         $data=json_decode(json_encode($da));
       //  echo"<pre>";print_r($data);
@@ -36,6 +41,6 @@ class HomeController extends Controller
       $branch= DB::table('branches')->get();
       $brh=json_decode(json_encode($branch));
 
-        return view('Billing_file.Dashboard',['dat'=>$data, 'payment'=>$pay,'relation'=>$rel, 'branch'=>$brh]);
+        return view('Billing_file.Dashboard',['dat'=>$data, 'payment'=>$pay,'relation'=>$rel, 'branch'=>$brh, 'master'=>$matt]);
     }
 }

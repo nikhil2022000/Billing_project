@@ -10,6 +10,7 @@ use App\Models\emp_users;
 use App\Models\branch;
 use App\Models\bill_categories;
 use App\Models\master_data;
+use App\Models\mini_master;
 use DB;
 use Response;
 class billingController extends Controller
@@ -79,31 +80,41 @@ class billingController extends Controller
         return redirect()->back()->with('message', 'Data successfully insert');
     }
     public function master_form(Request $req){
-        // dd('ff');
+        //   dd($_POST);
         $data = new master_data;
+        ////////////////////////basic details/////////
         $data->sr_no=$req->sr_no;
         $data->number=$req->number;
         $data->assigned_to=$req->assigned_to;
-        $data->service_type=$req->service_type;
-        $data->relationship_no=$req->relationship_no;
-        $data->payment_units=$req->payment_units;
-        $data->payment_mode=$req->payment_mode;
-        $data->plan_details=$req->plan_details;
+        $data->operator_type = $req->operator_type;
+        $data->branch_location=$req->branch_location;
         $data->operator=$req->operator;
+        $data->status=$req->status;
+        $data->plan_details=$req->plan_details;
+        ///////////////////////////payment details////////////////////////////
+        $data->payment_units=$req->payment_units;
+        $data->payment_cycle=$req->payment_cycle;
+        $data->monthly_rental_amount=$req->monthly_rental_amount;
+        $data->tds=$req->tds;
+        $data->gst=$req->gst;
+        $data->credit_limit=$req->credit_limit;
+        $data->security_deposit=$req->security_deposit;
+        $data->payment_mode=$req->payment_mode;
+        /////////////////////////////////////billing//////////////////
         $data->bill_date=$req->bill_date;
-        $data->billing_cycle_from=$req->billing_cycle_from;
         $data->billing_cycle_to=$req->billing_cycle_to;
+        $data->billing_cycle_from=$req->billing_cycle_from;
         $data->grace_days=$req->grace_days;
         $data->due_date=$req->due_date;
-        $data->billing_type=$req->billing_type;
-        $data->email=$req->email;
+        ////////////////////////////////////////////////////////other///////////
+        $data->relationship_no=$req->relationship_no;
         $data->mobile_no=$req->mobile_no;
-        $data->security_deposit=$req->security_deposit;
+        $data->dsl_id=$req->dsl_id;
         $data->custmoer_gst_no=$req->custmoer_gst_no;
         $data->biller_gst_number=$req->biller_gst_number;
         $data->state=$req->state;
-        $data->branch_location=$req->branch_location;
-        $data->monthly_cr_limit=$req->monthly_cr_limit;
+        $data->bill_open_password=$req->bill_open_password;
+        $data->registered_id=$req->registered_id;
         $data->get_billing_details_from=$req->get_billing_details_from;
         $data->save();
         return redirect()->back()->with('message', 'Data successfully insert');
@@ -145,4 +156,31 @@ class billingController extends Controller
        return Response::json($response);
 }
 
+public function mini_master(){
+  $da = DB::table('master_data')->select('sr_no')->get();
+  $data=json_decode(json_encode($da));
+   //echo"<pre>";print_r($da);die;
+   $opt = DB::table('operator')->get();
+   $opreter=json_decode(json_encode($opt));
+
+   $branch= DB::table('branches')->get();
+   $brh=json_decode(json_encode($branch));
+  //  echo"<pre>";print_r($brh);die;
+
+return view('Billing_file.mini_master_data',['id'=>$data,'opt'=>$opreter, 'branch'=>$brh]);
+}
+
+public function mini_insert(Request $req ){
+        // dd('gg');
+        $data = new mini_master;
+        $data->sr_no=$req->sr_no;
+        $data->operator=$req->operator;
+        $data->assigned_to=$req->assigned_to;
+        $data->number=$req->number;
+        $data->plan_details=$req->plan_details;
+        $data->branch_locaiton=$req->branch_locaiton;
+        $data->status=$req->status;
+        $data->save();
+        return redirect()->back()->with('message', 'Data successfully insert');
+}
 }

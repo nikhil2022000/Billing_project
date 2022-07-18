@@ -51,6 +51,22 @@
 
                                     <!-- Field wrapper start -->
                                     <div class="field-wrapper">
+                                    <select class="form-select" id="formSelect" name="status">
+                                            <option value="">Select</option>
+                                            <option value="Active">Active</option>
+                                            <option value="Hold">Hold</option>
+                                            <option value="suspended">suspended</option>
+                                            <option value="surrendered">surrendered</option>
+                                        </select>
+                                        <div class="field-placeholder">Status</div>
+                                    </div>
+                                    <!-- Field wrapper end -->
+
+                                    </div>
+                                <!-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+
+                                
+                                    <div class="field-wrapper">
                                         <select class="form-select" id="formSelect" name="operator">
                                             <option value="">Select</option>
                                             @foreach($opt as $oprater)
@@ -58,10 +74,10 @@
 											@endforeach
                                         </select>
                                         <div class="field-placeholder">Select Operator</div>
-                                    </div>
+                                    </div> -->
                                     <!-- Field wrapper end -->
-
-                                </div>
+<!-- 
+                                </div> -->
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
 
                                     <!-- Field wrapper start -->
@@ -112,18 +128,6 @@
                             </div>
                             <div class="row gutters">
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-
-                                    <!-- Field wrapper start -->
-                                    <div class="field-wrapper">
-                                    <select class="form-select" id="formSelect" name="status">
-                                            <option value="">Select</option>
-                                            <option value="Active">Active</option>
-                                            <option value="Hold">Hold</option>
-                                            <option value="suspended">suspended</option>
-                                            <option value="surrendered">surrendered</option>
-                                        </select>
-                                        <div class="field-placeholder">Status</div>
-                                    </div>
                                     <!-- Field wrapper end -->
 
                                 </div>

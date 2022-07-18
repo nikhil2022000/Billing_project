@@ -71,6 +71,9 @@ Route::any('mini_master',[billingController::class,'mini_master']);
 
 Route::any('mini_insert',[billingController::class,'mini_insert']);
 
+Route::any('append_data',[billingController::class,'append_data']);
+Route::any('mini_int',[billingController::class,'mini_int']);
+
 
 Auth::routes();
 

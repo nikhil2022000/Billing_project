@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class mini_master extends Model
 {
     use HasFactory;
-    protected $table= 'mini_master';
+    protected $table= 'number_details';
     protected $fillable = [
         'sr_no',
         'operator',

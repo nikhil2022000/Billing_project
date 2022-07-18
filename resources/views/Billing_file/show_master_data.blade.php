@@ -28,7 +28,7 @@
                                                   
                                                     <th>Plan Details</th>
                                                    
-                                                    <th>Montly Cr Limit</th>
+                                                    <!-- <th>Montly Cr Limit</th> -->
                                                     <th>Details</th>
                                                 </tr>
                                                 </thead>
@@ -39,7 +39,7 @@
                                                     <td>{{$data->number}}</td>
                                                     <td>{{$data->assigned_to}}</td>
                                                    
-                                                    <?php
+                                                    <!-- <?php
                                                     foreach($relation as $rel){
                                                         //$da[]=$opreter;
                                                  if($data->relationship_no == $rel->id){
@@ -48,9 +48,9 @@
                                                     <td>{{$rel->number}}</td>
                                                     <?php
                                                  }
-                                                        }?>
+                                                        }?> -->
                                                     <td>{{$data->plan_details}}</td>
-                                                    <td>{{$data->monthly_cr_limit}}</td>
+                                                    <td>{{$data->credit_limit}}</td>
                                                     <td><button type="button" class="btn btn-primary edtbrnch" style="width: 59px; padding: 0px;" value="{{$data->id}}" >Details</button></td>
                                                     
                                                     </tr>

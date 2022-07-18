@@ -11,7 +11,7 @@
 		<link rel="shortcut icon" href="{{'design/img/fav.png'}}">
 
 		<!-- Title -->
-		<title>Uni Pro Admin Template - Admin Dashboard</title>
+		<title>Billing Project</title>
 
 
 		<!-- *************
@@ -144,6 +144,9 @@
 										<li>
 											<a href="show"><i class="icon-layout"></i>Master data</a>
 										</li>
+										<li>
+											<a href="mini_master"><i class="icon-server"></i>Megamenu</a>
+										</li>
 									</ul>
 									<ul class="tile-menu">
 										<li class="list-heading">Layouts</li>
@@ -160,9 +163,7 @@
 										<li>
 											<a href="layout-search.html"><i class="icon-search1"></i>Global Search</a>
 										</li>
-										<li>
-											<a href="layout-megamenu.html"><i class="icon-server"></i>Megamenu</a>
-										</li>
+										
 										<li>
 											<a href="layout-bradcrumb.html"><i class="icon-hard-drive"></i>Breadcrumbs</a>
 										</li>

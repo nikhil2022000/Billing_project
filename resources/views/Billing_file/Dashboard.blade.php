@@ -154,7 +154,7 @@
 							</div>
 							<div id='append_div'>
 							</div>
-	
+
 							<div class="row gutters">
 								<div class="container form-sty">
 									<p><b>Payment Details</b></p>
@@ -275,7 +275,7 @@
 									</div>
 
 
-								</div>
+									</div>
 								<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">

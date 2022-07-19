@@ -102,7 +102,7 @@ class billingController extends Controller
         }
 
         foreach ($req->sr_no as $key => $dat) {
-          //  echo"<pre>";print_r($data); die;
+            //  echo"<pre>";print_r($data); die;
             $data = new master_data;
             ////////////////////////basic details/////////
             $data->sr_no = $dat;
@@ -139,7 +139,7 @@ class billingController extends Controller
             $data->registered_id = $req->registered_id[$key];
             $data->get_billing_details_from = $req->get_billing_details_from[$key];
             $data->save();
-           
+
         }
         return redirect()->back()->with('message', 'Data successfully insert');
     }
@@ -215,9 +215,11 @@ class billingController extends Controller
     public function append_data()
     {
         // dd('lkjsadf');
-        $datasend = "<div class='row gutters'>
-        <div class='container form-sty'>
-									<p><b>Number detalis</b></p>
+        $datasend = "
+        <div class='add'>
+        <div class='row gutters'>
+                 <div class='container form-sty'>
+									<p><b>Add Numbers to Exisiting Billable ID </b></p>
 								</div>
                   <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12'>
 									<!-- Field wrapper start -->
@@ -251,7 +253,7 @@ class billingController extends Controller
                   </div>
                 </div>
               </div>
-              <div class='row gutters'>
+                            <div class='row gutters'>
 								<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12'>
 
 									<!-- Field wrapper start -->
@@ -274,8 +276,25 @@ class billingController extends Controller
 									<!-- Field wrapper end -->
 
 								</div>
+                                <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12'>
+                                    <div class='row gutters'>
+                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12'>
+                                            <!-- Field wrapper start -->
+                                            <div class='field-wrapper' align='right'>
+                                            <a class='btn btn-primary' href='#' role='button' 
+                                            id='append_hide'>-</a>
+                                            <a class='btn btn-primary' href='#' role='button' 
+                                            id='append_input'>+</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    
+										
+
+								</div>
 
 							</div>
+				</div>
               ";
         $response['data'] = $datasend;
         $response['success'] = true;

@@ -7,6 +7,7 @@
 		margin-top: 5px;
 		margin-bottom: 7px;
 	}
+
 </style>
 
 <!-- Content wrapper scroll start -->
@@ -24,7 +25,7 @@
 					<form method="POST" action="{{url('master_form'),('mini_int')}}">
 						@csrf
 						<div class="card-body">
-							
+
 							<!-- Row start -->
 							<div class="row gutters">
 
@@ -33,14 +34,15 @@
 								</div>
 
 								<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-											<?php
+									<?php
 											$vk=count($master) + 1;
 
 											$mini = sprintf('%05d', $vk);
 											?>
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
-										<input type="text" class="form-control" placeholder="Sr.No " name="sr_no[]" value="{{$mini}}" readonly>
+										<input type="text" class="form-control" placeholder="Sr.No " name="sr_no[]"
+											value="{{$mini}}" readonly>
 										<div class="field-placeholder">Sr.No (Unique ID)</div>
 									</div>
 									<!-- Field wrapper end -->
@@ -88,7 +90,7 @@
 
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
-									<input type="text" class="form-control" placeholder="Enter Branch/Locaiton"
+										<input type="text" class="form-control" placeholder="Enter Branch/Locaiton"
 											name="branch_location[]" required>
 										<div class="field-placeholder">Branch/Locaiton</div>
 									</div>
@@ -116,13 +118,13 @@
 
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
-									<select class="form-select" id="formSelect" name="status[]" required>
-                                            <option value="">Select</option>
-                                            <option value="Active">Active</option>
-                                            <option value="Hold">Hold</option>
-                                            <option value="suspended">suspended</option>
-                                            <option value="surrendered">surrendered</option>
-                                        </select>
+										<select class="form-select" id="formSelect" name="status[]" required>
+											<option value="">Select</option>
+											<option value="Active">Active</option>
+											<option value="Hold">Hold</option>
+											<option value="suspended">suspended</option>
+											<option value="surrendered">surrendered</option>
+										</select>
 										<div class="field-placeholder">Status</div>
 									</div>
 									<!-- Field wrapper end -->
@@ -143,18 +145,19 @@
 
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
-									<a class="btn btn-primary" href="#" role="button" style="margin-left: 204px;" id='append_input'>+</a>
+										<a class="btn btn-primary" href="#" role="button" style="margin-left: 204px;"
+											id='append_input'>+</a>
 									</div>
 									<!-- Field wrapper end -->
 
-									</div>
+								</div>
 							</div>
 							<div id='append_div'>
 							</div>
-
+	
 							<div class="row gutters">
 								<div class="container form-sty">
-									<p><b>Paymet Details</b></p>
+									<p><b>Payment Details</b></p>
 								</div>
 								<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
 
@@ -181,7 +184,8 @@
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
 										<input type="date" class="form-control" id="inputEmail"
-											placeholder="Enter Monthly Rental Amount" name="monthly_rental_amount[]" required>
+											placeholder="Enter Monthly Rental Amount" name="monthly_rental_amount[]"
+											required>
 										<div class="field-placeholder">Monthly Rental Amount</div>
 									</div>
 									<!-- Field wrapper end -->
@@ -192,8 +196,8 @@
 
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
-										<input type="text" class="form-control" placeholder="Enter TDS %"
-											name="tds[]" required>
+										<input type="text" class="form-control" placeholder="Enter TDS %" name="tds[]"
+											required>
 										<div class="field-placeholder">TDS %</div>
 									</div>
 									<!-- Field wrapper end -->
@@ -203,8 +207,8 @@
 
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
-										<input type="text" class="form-control" placeholder="Enter GST %"
-											name="gst[]" required>
+										<input type="text" class="form-control" placeholder="Enter GST %" name="gst[]"
+											required>
 										<div class="field-placeholder">GST %</div>
 									</div>
 									<!-- Field wrapper end -->
@@ -221,7 +225,7 @@
 									<!-- Field wrapper end -->
 
 								</div>
-							</div>		
+							</div>
 							<div class="row gutters">
 								<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
 
@@ -245,7 +249,7 @@
 									<!-- Field wrapper end -->
 
 								</div>
-								
+
 							</div>
 							<div class="row gutters">
 								<div class="container form-sty">
@@ -298,7 +302,8 @@
 
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
-										<input type="date" class="form-control" id="inputEmail" name="due_date[]" required>
+										<input type="date" class="form-control" id="inputEmail" name="due_date[]"
+											required>
 										<div class="field-placeholder">Due Date</div>
 									</div>
 									<!-- Field wrapper end -->
@@ -389,7 +394,7 @@
 
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
-									<input type="text" class="form-control" id="inputPwd"
+										<input type="text" class="form-control" id="inputPwd"
 											placeholder="Enter Bill Open Password" name="bill_open_password[]" required>
 										<div class="field-placeholder">Bill Open Password</div>
 									</div>
@@ -412,7 +417,8 @@
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
 										<input type="text" class="form-control" id="inputPwd"
-											placeholder="Enter Get Bill Details ?" name="get_billing_details_from[]" required>
+											placeholder="Enter Get Bill Details ?" name="get_billing_details_from[]"
+											required>
 										<div class="field-placeholder">Get Bill Details From ?</div>
 									</div>
 									<!-- Field wrapper end -->
@@ -447,21 +453,28 @@
 </div>
 <!-- Content wrapper end -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
- <script>
-        $(document).ready(function () {
-            $(document).on('click','#append_input',function(){
-				// alert('ff');
-                 $.ajax({
-                        type: "GET",
-                        url: "/append_data",
-                        success: function(response){
-              			// alert(response['data']);
-			   	$('#append_div').append(response['data']);
-			       
-			}
-            
+<script>
+	$(document).ready(function () {
+		$(document).on('click', '#append_input', function () {
+			$(this).hide();
+			// alert('ff');
+			$.ajax({
+				type: "GET",
+				url: "/append_data",
+				success: function (response) {
+					// alert(response['data']);
+					$('#append_div').append(response['data']);
+
+				}
+
+			});
 		});
-	});
+		
+		$(document).on('click','#append_hide',function(){
+			let row_item = $(this).parent().parent().parent().parent().parent().parent();
+			$(row_item).remove();
+			$('#append_input').show();
+		});
 	});
 </script>
 @endsection

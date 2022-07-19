@@ -145,7 +145,7 @@
 											<a href="show"><i class="icon-layout"></i>Master data</a>
 										</li>
 										<li>
-											<a href="mini_master"><i class="icon-server"></i>Megamenu</a>
+											<a href="mini_master"><i class="icon-server"></i>Number Details</a>
 										</li>
 									</ul>
 									<ul class="tile-menu">

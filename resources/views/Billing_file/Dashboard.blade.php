@@ -64,9 +64,11 @@
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
 										<select class="form-select" id="formSelect" name="assigned_to[]" required>
-											<option value="uni">Select</option>
-											<option value="sahil">sahil</option>
 											<option value="">Select</option>
+											@foreach($users as $user)
+											<option value="{{$user->id}}">{{$user->name}}</option>
+											@endforeach
+											
 										</select>
 										<div class="field-placeholder">Assigned to</div>
 									</div>

@@ -82,7 +82,13 @@
 
                                     <!-- Field wrapper start -->
                                     <div class="field-wrapper">
-                                    <input type="text" class="form-control" placeholder=" Enter Number " name="assigned_to">
+                                    <select class="form-select" id="formSelect" name="assigned_to" required>
+											<option value="">Select</option>
+											@foreach($users as $user)
+											<option value="{{$user->id}}">{{$user->name}}</option>
+											@endforeach
+											
+										</select>
                                         <div class="field-placeholder">Assigned to</div>
                                     </div>
                                     <!-- Field wrapper end -->

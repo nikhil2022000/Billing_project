@@ -193,8 +193,10 @@ class billingController extends Controller
         $branch = DB::table('branches')->get();
         $brh = json_decode(json_encode($branch));
         //  echo"<pre>";print_r($brh);die;
+        $emp = DB::table('emp_users')->get();
+        $users = json_decode(json_encode($emp));
 
-        return view('Billing_file.mini_master_data', ['id' => $data, 'opt' => $opreter, 'branch' => $brh]);
+        return view('Billing_file.mini_master_data', ['id' => $data, 'opt' => $opreter, 'branch' => $brh,'users' => $users]);
     }
 
     public function mini_insert(Request $req)

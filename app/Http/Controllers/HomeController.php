@@ -41,6 +41,10 @@ class HomeController extends Controller
       $branch= DB::table('branches')->get();
       $brh=json_decode(json_encode($branch));
 
-        return view('Billing_file.Dashboard',['dat'=>$data, 'payment'=>$pay,'relation'=>$rel, 'branch'=>$brh, 'master'=>$matt]);
+      $emp= DB::table('emp_users')->get();
+      $users=json_decode(json_encode($emp));
+
+
+        return view('Billing_file.Dashboard',['dat'=>$data, 'payment'=>$pay,'relation'=>$rel, 'branch'=>$brh, 'master'=>$matt,'users'=>$users]);
     }
 }

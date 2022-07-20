@@ -5,7 +5,7 @@
 				</div>
 				<!-- Content wrapper scroll end -->
 
-		</div>
+			</div>
 			<!-- *************
 				************ Main container end *************
 			************* -->

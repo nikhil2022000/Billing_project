@@ -26,39 +26,23 @@ Route::get('dashboard', function () {
 });
 Route::any('master_form',[billingController::class,'master_form']);
 
-Route::get('bill_categories', function () {
-    return view('Billing_file.billing_categories');
-});
-
+Route::any('bill_categories',[billingController::class,'show_catg']);
 Route::any('categories',[billingController::class,'bill_categories']);
 
-Route::get('operators', function () {
-    return view('Billing_file.operators');
-});
 Route::any('Opratores_set',[billingController::class,'category']);
-
 Route::any('oprate',[billingController::class,'operators']);
 
-Route::get('payment_units', function () {
-    return view('Billing_file.payment_units');
-});
+Route::any('payment_units',[billingController::class,'units']);
 Route::any('pay_units',[billingController::class,'payment_units']);
 
-Route::get('relation', function () {
-    return view('Billing_file.Relationship_number');
-});
-Route::any('relation_set',[billingController::class,'opt']);
 
+Route::any('relation_set',[billingController::class,'opt']);
 Route::any('relation_no',[billingController::class,'relation_no']);
 
-Route::get('emp', function () {
-    return view('Billing_file.EMP');
-});
+Route::any('emp',[billingController::class,'emp_user']);
 Route::any('emp_user',[billingController::class,'emp']);
 
-Route::get('branch', function () {
-    return view('Billing_file.Branches');
-});
+Route::any('branch',[billingController::class,'show_branches']);
 Route::any('branch_add',[billingController::class,'branches']);
 
 
@@ -67,6 +51,7 @@ Route::any('show',[billingController::class,'show']);
 Route::any('popup/{id}',[billingController::class,'popup']);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
+Route::any('show_number_details',[billingController::class,'show_details']);
 Route::any('mini_master',[billingController::class,'mini_master']);
 
 Route::any('mini_insert',[billingController::class,'mini_insert']);

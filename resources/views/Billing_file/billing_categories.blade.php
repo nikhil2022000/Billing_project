@@ -12,8 +12,7 @@
 			<div class="col-xl-12">
                         <!-- Card start -->
                         <div class="card">
-									<div class="card-body mt-4">
-										
+							<div class="card-body mt-4">
 										<!-- Row start -->
 										<div class="row gutters">
 										@if(session()->has('message'))
@@ -27,7 +26,7 @@
 												<!-- Field wrapper start -->
 												<div class="field-wrapper">
 													<input type="text" class="form-control" placeholder=" Enter Category Name" name="category_name">
-													<div class="field-placeholder">Category Name</div>
+													<div class="field-placeholder">Billing Category</div>
 												</div>
 												<!-- Field wrapper end -->
 
@@ -48,6 +47,27 @@
 									</div>
 								</div>
 								<!-- Card end -->
+					<div class="card" style="padding: 13px;">
+                    <!-- Card end -->
+                    <div class="table-responsive">
+                                            <table id="copy-print-csv" class="table custom-table">
+                                                <thead>
+                                                <tr>
+                                                    <th>Sr.No</th>
+                                                    <th>Category</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+													@foreach($dat as $data)
+                                                 <tr>
+													<td>{{$data->id}}</td>
+													<td>{{$data->category_name}}</td>
+                                                  
+                                              @endforeach
+                                                </tbody>
+                                        </table>
+                                        </div>
+                </div>
 
             </div>
         </div>

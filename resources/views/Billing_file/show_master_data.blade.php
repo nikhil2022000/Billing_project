@@ -21,7 +21,7 @@
                                             <table id="copy-print-csv" class="table custom-table">
                                                 <thead>
                                                 <tr>
-                                                    <th>Sr.No</th>
+                                                    <th>Parent_ID</th>
                                                     <th>Number</th>
                                                     <th>Assigned_to</th>
                                                     <th>Relationship No</th>
@@ -37,18 +37,18 @@
                                                     <tr>
                                                     <td>{{$data->sr_no}}</td>
                                                     <td>{{$data->number}}</td>
-                                                    <td>{{$data->assigned_to}}</td>
+                                                    
                                                    
-                                                    <!-- <?php
-                                                    foreach($relation as $rel){
+                                                    <?php
+                                                    foreach($user as $users){
                                                         //$da[]=$opreter;
-                                                 if($data->relationship_no == $rel->id){
+                                                 if($users->id == $data->assigned_to){
                                                     
                                                     ?>
-                                                    <td>{{$rel->number}}</td>
+                                                   <td>{{$users->name}}</td>
                                                     <?php
                                                  }
-                                                        }?> -->
+                                                        }?>
                                                     <td>{{$data->plan_details}}</td>
                                                     <td>{{$data->credit_limit}}</td>
                                                     <td><button type="button" class="btn btn-primary edtbrnch" style="width: 59px; padding: 0px;" value="{{$data->id}}" >Details</button></td>
@@ -248,7 +248,7 @@
                                     </div>
                                
 							</div>
-                            <div class="row" style="padding: 5px;">
+                            <div class="row" style="padding: 5px; background: #eff4f4;">
                                     <div class="col-sm-3">
                                         <lable><b>custmoer_gst_no</b></lable>
                                     </div>
@@ -278,7 +278,7 @@
                                     </div>
                                
 							</div>
-                            <div class="row" style="padding: 5px;">
+                            <div class="row" style="padding: 5px; background: #eff4f4;">
                                     <div class="col-sm-3">
                                         <lable><b>credit_limit</b></lable>
                                     </div>
@@ -316,15 +316,20 @@
                         type: "GET",
                         url: "/popup/"+b_id,
                         success: function(response){
-               //alert(response['data']);
+            //    alert(response['user']);
+            var id = [];
+            var opt=[];
+            var bran=[];
+            var loca=[];
                $.each(response['data'], function () {
 						var key = Object.keys(this);
 						var value = this;
-                       //alert(value.number);
+                    //    alert(value.number);
                        $('#1').html(value.sr_no);
                        $('#2').html(value.number);
                        $('.mo').html(value.number);
-                       $('#3').html(value.assigned_to);
+                       id.push(value.assigned_to); 
+                    //    $('#3').html(value.assigned_to);
                        $('#4').html(value.operator_type);
                        $('#5').html(value.status);
                        $('#6').html(value.payment_units);
@@ -334,7 +339,8 @@
                        $('#10').html(value.gst);
                        $('#11').html(value.payment_mode);
                        $('#12').html(value.plan_details);
-                       $('#13').html(value.operator);
+                       opt.push(value.operator); 
+                    //    $('#13').html(value.operator);
                        $('#14').html(value.bill_date);
                        $('#15').html(value.billing_cycle_from);
                        $('#16').html(value.billing_cycle_to);
@@ -348,21 +354,49 @@
                        $('#24').html(value.registered_id);
                        $('#25').html(value.custmoer_gst_no);
                        $('#26').html(value.biller_gst_number);
-                       $('#27').html(value.state);
-                       $('#28').html(value.branch_location);
+                       bran.push(value.state); 
+                       loca.push(value.branch_location); 
+
+                    //    $('#27').html(value.state);
+                    //    $('#28').html(value.branch_location);
                        $('#29').html(value.credit_limit);
                        $('#30').html(value.get_billing_details_from);  
                });    
                
-                            
-            
+               $.each(response['user'], function () {
+						var key = Object.keys(this);
+						var data = this;
+                        // alert(id);
+                       if(data.id.indexOf(id) != -1){
+                        $('#3').html(data.name);
+                       }
+            });    
+            $.each(response['opreter'], function () {
+						var key = Object.keys(this);
+						var da = this;
+                        // alert(id);
+                       if(da.id.indexOf(opt) != -1){
+                        $('#13').html(da.operator);
+                       }
+            });    
+            $.each(response['branch'], function () {
+						var key = Object.keys(this);
+						var branch = this;
+                        // alert(id);
+                       if(branch.id.indexOf(bran) != -1){
+                        $('#27').html(branch.state);
+                       }
+                       if(branch.id.indexOf(loca) != -1){
+                        $('#28').html(branch.branch_name);
+                       }
+            });    
             
                         
                         }
             
                 });
             });
-            });
+         });
 
 </script>
 

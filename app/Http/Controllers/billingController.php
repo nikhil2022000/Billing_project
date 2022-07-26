@@ -23,7 +23,10 @@ class billingController extends Controller
 
         $data = json_decode(json_encode($da));
         //  echo"<pre>";print_r($data);
-        return view('Billing_file.operators', ['dat' => $data]);
+        $oprater = DB::table('operator')->get();
+        $oprat = json_decode(json_encode($oprater));
+
+        return view('Billing_file.operators', ['dat' => $data,'oprates' => $oprat]);
     }
     public function operators(Request $req)
     {
@@ -34,13 +37,18 @@ class billingController extends Controller
         $data->save();
         return redirect()->back()->with('message', 'Data successfully insert');
     }
-
+    public function units(Request $req)
+    {
+        $units = DB::table('payment_units')->get();
+        $pay = json_decode(json_encode($units));
+        //echo"<pre>";print_r($pay);die;
+        return view('Billing_file.payment_units', ['payment' => $pay]);
+    }
     public function payment_units(Request $req)
     {
 
         $data = new payment_units;
         $data->unit_name = $req->unit_name;
-        $data->name = $req->name;
         $data->save();
         return redirect()->back()->with('message', 'Data successfully insert');
     }
@@ -51,7 +59,10 @@ class billingController extends Controller
 
         $data = json_decode(json_encode($da));
         // echo"<pre>";print_r($data);
-        return view('Billing_file.Relationship_number', ['dat' => $data]);
+        $un = DB::table('relation_number')->get();
+        $rel = json_decode(json_encode($un));
+
+        return view('Billing_file.Relationship_number', ['dat' => $data ,'relation'=>$rel]);
     }
     public function relation_no(Request $req)
     {
@@ -61,6 +72,12 @@ class billingController extends Controller
         $data->save();
         return redirect()->back()->with('message', 'Data successfully insert');
     }
+    public function emp_user(Request $req)
+    {
+        $emp = DB::table('emp_users')->get();
+        $users = json_decode(json_encode($emp));
+        return view('Billing_file.EMP', ['users' => $users]);
+    }
     public function emp(Request $req)
     {
         $data = new emp_users;
@@ -69,14 +86,29 @@ class billingController extends Controller
         $data->save();
         return redirect()->back()->with('message', 'Data successfully insert');
     }
+    public function show_branches(Request $req)
+    {
+        $branch = DB::table('branches')->get();
+        $brh = json_decode(json_encode($branch));
+        return view('Billing_file.Branches', ['branch' => $brh]);
+    }
     public function branches(Request $req)
     {
         $data = new branch;
         $data->branch_name = $req->branch_name;
-        $data->state = $req->state;
         $data->save();
         return redirect()->back()->with('message', 'Data successfully insert');
     }
+    public function show_catg(Request $req)
+    {
+        $da = DB::table('category')->get();
+        $data = json_decode(json_encode($da));
+        //  echo"<pre>";print_r($data);
+
+        return view('Billing_file.billing_categories', ['dat' => $data]);
+    }
+
+    
     public function bill_categories(Request $req)
     {
         $data = new bill_categories;
@@ -86,7 +118,10 @@ class billingController extends Controller
     }
     public function master_form(Request $req)
     {
-        // echo"<pre>";print_r($req->branch_location); die;
+        // Excel::import(new masterimport, $req->file('file'));
+        // return redirect()->back()->with('message', 'Data successfully Import');
+
+        // echo"<pre>";print_r('kkk'); die;
         $d = $req->sr_no[0];
         // echo"<pre>";print_r($d); die;
         foreach ($req->number as $key => $dat) {
@@ -94,7 +129,6 @@ class billingController extends Controller
             $data = new mini_master;
             $data->number = $dat;
             $data->sr_no = $d;
-            $data->operator = $req->operator_type[$key];
             $data->assigned_to = $req->assigned_to[$key];
             $data->branch_location = $req->branch_location[$key];
             $data->status = $req->status[$key];
@@ -159,6 +193,9 @@ class billingController extends Controller
         $pay = json_decode(json_encode($units));
         //echo"<pre>";print_r($pay);die;
 
+        $emp = DB::table('emp_users')->get();
+        $users = json_decode(json_encode($emp));
+
         $un = DB::table('relation_number')->get();
         $rel = json_decode(json_encode($un));
         // echo"<pre>";print_r($rel);die;
@@ -167,7 +204,7 @@ class billingController extends Controller
         $brh = json_decode(json_encode($branch));
         // echo"<pre>";print_r($brh);die;
 
-        return view('Billing_file.show_master_data', ['dat' => $data, 'payment' => $pay, 'relation' => $rel, 'branch' => $brh, 'opt' => $opreter]);
+        return view('Billing_file.show_master_data', ['dat' => $data, 'user' => $users,'payment' => $pay, 'relation' => $rel, 'branch' => $brh, 'opt' => $opreter]);
 
     }
     public function popup($id)
@@ -176,12 +213,46 @@ class billingController extends Controller
         $da = DB::table('master_data')->where('id', $id)->get();
         $data = json_decode(json_encode($da));
         //echo"<pre>";print_r($data);die;
+        $emp = DB::table('emp_users')->get();
+        $users = json_decode(json_encode($emp));
+        // echo"<pre>";print_r($users);die;
+        $opt = DB::table('operator')->get();
+        $opreter = json_decode(json_encode($opt));
+        // echo"<pre>";print_r($opreter);die;
+        $branch = DB::table('branches')->get();
+        $brh = json_decode(json_encode($branch));
+        // echo"<pre>";print_r($brh);die;
+
         $response['data'] = $data;
+        $response['user'] = $users;
+        $response['opreter'] = $opreter;
+        $response['branch'] = $brh;
         $response['success'] = true;
         $response['messages'] = 'Succesfully loaded';
         return Response::json($response);
     }
 
+    public function show_details()
+    {
+        $da = DB::table('master_data')->select('sr_no')->get();
+        $data = json_decode(json_encode($da));
+        //echo"<pre>";print_r($da);die;
+        $opt = DB::table('operator')->get();
+        $opreter = json_decode(json_encode($opt));
+
+        $branch = DB::table('branches')->get();
+        $brh = json_decode(json_encode($branch));
+        //  echo"<pre>";print_r($brh);die;
+        $emp = DB::table('emp_users')->get();
+        $users = json_decode(json_encode($emp));
+
+        $data_show = DB::table('number_details')->get();
+        $show = json_decode(json_encode($data_show));
+        // echo"<pre>";print_r($show);die;
+
+
+        return view('Billing_file.show_number_details', ['id' => $data, 'opt' => $opreter, 'branch' => $brh,'users' => $users, 'show' => $show]);
+    }
     public function mini_master()
     {
         $da = DB::table('master_data')->select('sr_no')->get();
@@ -196,19 +267,24 @@ class billingController extends Controller
         $emp = DB::table('emp_users')->get();
         $users = json_decode(json_encode($emp));
 
-        return view('Billing_file.mini_master_data', ['id' => $data, 'opt' => $opreter, 'branch' => $brh,'users' => $users]);
-    }
+        $data_show = DB::table('number_details')->get();
+        $show = json_decode(json_encode($data_show));
+        // echo"<pre>";print_r($show);die;
 
+
+        return view('Billing_file.mini_master_data', ['id' => $data, 'opt' => $opreter, 'branch' => $brh,'users' => $users, 'show' => $show]);
+    }
     public function mini_insert(Request $req)
     {
+        // echo"<pre>";print_r($_POST);die;
         // dd('gg');
-        $data = new number_details;
+        $data = new mini_master;
         $data->sr_no = $req->sr_no;
-        $data->operator = $req->operator;
+        // $data->operator = $req->operator;
         $data->assigned_to = $req->assigned_to;
         $data->number = $req->number;
         $data->plan_details = $req->plan_details;
-        $data->branch_locaiton = $req->branch_locaiton;
+        $data->branch_location = $req->branch_location;
         $data->status = $req->status;
         $data->save();
         return redirect()->back()->with('message', 'Data successfully insert');

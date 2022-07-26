@@ -15,6 +15,45 @@
 
 	<!-- Content wrapper start -->
 	<div class="content-wrapper">
+	<div class="row gutters">
+            <div class="col-xl-12">
+                <!-- Card start -->
+
+                <div class="card">
+                    
+                    <form method="POST" action="{{url('master_form')}}" enctype="multipart/form-data">
+                        @csrf
+                        <div class="card-body">
+
+                            <!-- Row start -->
+                            <div class="row gutters">
+                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+                                    <!-- Field wrapper end -->
+                                    <div class="field-wrapper">
+                                    <input type="file" class="form-control"  name="file">
+                                        <div class="field-placeholder">Import Number Details</div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+
+                                    <!-- Field wrapper start -->
+                                    <div class="field-wrapper">
+                                    <button type="submit" class="btn btn-primary" style="margin-left: 170px;">Submit</button>
+                                    </div>
+                                    <!-- Field wrapper end -->
+
+                                </div>
+                               
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+               
+                <!-- Place your content here -->
+            </div>
+        </div>
 
 		<!-- Row start -->
 		<div class="row gutters">
@@ -28,7 +67,7 @@
 
 							<!-- Row start -->
 							<div class="row gutters">
-
+							<h4>Enter the unique number in master data</h4>		
 								<div class="container form-sty">
 									<p><b>Basic Details</b></p>
 								</div>
@@ -81,8 +120,11 @@
 
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
-										<input type="text" class="form-control" placeholder="Enter Operator Type"
-											name="operator_type[]" required>
+											<select class="form-select" id="formSelect" name="operator_type[]" required>
+											<option value="">Select</option>
+											<option value="Postpaid">Postpaid</option>
+											<option value="prepaid">prepaid</option>
+										</select>
 										<div class="field-placeholder">Operator Type</div>
 									</div>
 									<!-- Field wrapper end -->
@@ -92,8 +134,12 @@
 
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
-										<input type="text" class="form-control" placeholder="Enter Branch/Locaiton"
-											name="branch_location[]" required>
+											<select class="form-select" id="formSelect" name="branch_location[]" required>
+											<option value="uni">Select</option>
+											@foreach($branch as $bran)
+											<option value="{{$bran->id}}">{{$bran->branch_name}}</option>
+											@endforeach
+										</select>
 										<div class="field-placeholder">Branch/Locaiton</div>
 									</div>
 									<!-- Field wrapper end -->
@@ -165,8 +211,12 @@
 
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
-										<input type="text" class="form-control" placeholder="Payment Unit"
-											name="payment_units[]" required>
+											<select class="form-select" id="formSelect" name="payment_units[]" required>
+											<option value="">Select</option>
+											@foreach($payment as $pay)
+											<option value="{{$pay->id}}">{{$pay->unit_name}}</option>
+											@endforeach
+										</select>
 										<div class="field-placeholder">Payment Unit</div>
 									</div>
 									<!-- Field wrapper end -->
@@ -175,8 +225,13 @@
 								<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
-										<input type="date" class="form-control" id="inputPwd"
-											placeholder="Enter Payment Cycle" name="payment_cycle[]" required>
+											<select class="form-select" id="formSelect" name="payment_cycle[]" required>
+											<option value="">Select</option>
+											<option value="Monthly">Monthly</option>
+											<option value="2month">2month</option>
+											<option value="Quarterly">Quarterly</option>
+											<option value="Annual">Annual</option>
+										</select>
 										<div class="field-placeholder">Payment Cycle</div>
 									</div>
 
@@ -185,7 +240,7 @@
 								<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
-										<input type="date" class="form-control" id="inputEmail"
+										<input type="text" class="form-control" id="inputEmail"
 											placeholder="Enter Monthly Rental Amount" name="monthly_rental_amount[]"
 											required>
 										<div class="field-placeholder">Monthly Rental Amount</div>
@@ -322,8 +377,12 @@
 
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
-										<input type="email" class="form-control" id="inputEmail"
-											placeholder="Enter your Email" name="relationship_no[]" required>
+											<select class="form-select" id="formSelect" name="relationship_no[]" required>
+											<option value="">Select</option>
+											@foreach($relation as $relation)
+											<option value="{{$relation->id}}">{{$relation->number}}</option>
+											@endforeach
+										</select>
 										<div class="field-placeholder">Relationship number</div>
 									</div>
 									<!-- Field wrapper end -->
@@ -378,15 +437,11 @@
 
 									<!-- Field wrapper start -->
 									<div class="field-wrapper">
-										<select class="form-select" id="formSelect" name="state[]" required>
-											<option value="uni">Select</option>
-											@foreach($branch as $bran)
-											<option value="{{$bran->id}}">{{$bran->state}}</option>
-											@endforeach
-										</select>
+									<input type="text" class="form-control" id="inputEmail"
+											placeholder="Enter Biller GST Number" name="state[]" required>
 										<div class="field-placeholder">State</div>
 									</div>
-									<!-- Field wrapper end -->
+									<!-- Field wrapper end --->
 
 								</div>
 							</div>

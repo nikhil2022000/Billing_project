@@ -10,8 +10,8 @@
 				************ Main container end *************
 			************* -->
 
-		</div>
-	
+		<!-- </div>
+	 -->
 		<!-- Page wrapper end -->
 
 		<!-- *************
@@ -57,6 +57,6 @@
 
 		<!-- Main Js Required -->
 		<script src="{{'design/js/main.js'}}"></script>
-
+		
 	</body>
 </html>

@@ -1,0 +1,1 @@
+[25-Jul-2022 05:59:34 UTC] PHP Fatal error:  Cannot use Illuminate\Database\Eloquent\Factories\HasFactory as HasFactory because the name is already in use in /home2/easemyor/Billing_project/app/Models/User.php on line 8

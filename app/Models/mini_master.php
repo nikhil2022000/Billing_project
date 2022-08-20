@@ -11,11 +11,11 @@ class mini_master extends Model
     protected $table= 'number_details';
     protected $fillable = [
         'sr_no',
-        'operator',
         'assigned_to',
         'number',
         'plan_details',
-        'branch_locaiton',
+        'branch_location',
         'status',
+        'month',
     ];
 }

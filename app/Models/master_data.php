@@ -40,5 +40,6 @@ class master_data extends Model
         'bill_open_password',
         'registered_id',
         'get_billing_details_from',
+        'month',
     ];
 }

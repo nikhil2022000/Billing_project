@@ -21,6 +21,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function home()
+    {
+        return view('Billing_file.Dashboard');
+    }
     public function index()
     {
         $master= DB::table('master_data')->get();
@@ -45,6 +49,6 @@ class HomeController extends Controller
       $users=json_decode(json_encode($emp));
 
 
-        return view('Billing_file.Dashboard',['dat'=>$data, 'payment'=>$pay,'relation'=>$rel, 'branch'=>$brh, 'master'=>$matt,'users'=>$users]);
+        return view('Billing_file.bill_master',['dat'=>$data, 'payment'=>$pay,'relation'=>$rel, 'branch'=>$brh, 'master'=>$matt,'users'=>$users]);
     }
 }

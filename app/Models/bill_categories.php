@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class bill_categories extends Model
 {
     use HasFactory;
-    protected $table= 'category_name';
+    protected $table= 'category';
     protected $fillable = [
         'category_name',
     ];

@@ -11,6 +11,6 @@ class payment_units extends Model
     protected $table='payment_units';
     protected $fillable = [
         'unit_name',
-        'name',
+        
     ];
 }

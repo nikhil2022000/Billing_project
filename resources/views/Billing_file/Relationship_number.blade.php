@@ -42,7 +42,7 @@
                                 <!-- Field wrapper start -->
                                 <div class="field-wrapper">
                                     <input type="number" class="form-control" placeholder=" Enter Number" name="number">
-                                    <div class="field-placeholder">Number</div>
+                                    <div class="field-placeholder">Relationship Number</div>
                                 </div>
                                 <!-- Field wrapper end -->
 
@@ -71,7 +71,30 @@
                     </div>
                 </div>
                 <!-- Card end -->
-
+                <div class="card" style="padding: 13px;">
+                <div class="table-responsive">
+                                            <table id="copy-print-csv" class="table custom-table">
+                                                <thead>
+                                                <tr>
+                                                    <th>Sr.No</th>
+                                                    <th>Operator</th>
+                                                    <th>Relationship Number</th>
+                                                    
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                  @foreach($relation as $relation)
+												<tr>
+													<td>{{$relation->id}}</td>
+													<td>{{$relation->operator}}</td>
+													<td>{{$relation->number}}</td>
+												</tr>
+                                                  
+                                                @endforeach
+                                                </tbody>
+                                        </table>
+                                        </div>
+                                        </div>
 
 
 

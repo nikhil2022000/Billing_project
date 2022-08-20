@@ -25,59 +25,66 @@ Route::get('dashboard', function () {
     return view('Billing_file.Dashboard');
 });
 Route::any('master_form',[billingController::class,'master_form']);
+Route::any('master_import',[billingController::class,'master_import']);
+Route::any('master_Export',[billingController::class,'master_Export']);
 
-Route::get('bill_categories', function () {
-    return view('Billing_file.billing_categories');
-});
-
+Route::any('bill_categories',[billingController::class,'show_catg']);
 Route::any('categories',[billingController::class,'bill_categories']);
 
-Route::get('operators', function () {
-    return view('Billing_file.operators');
-});
 Route::any('Opratores_set',[billingController::class,'category']);
-
 Route::any('oprate',[billingController::class,'operators']);
 
-Route::get('payment_units', function () {
-    return view('Billing_file.payment_units');
-});
+Route::any('payment_units',[billingController::class,'units']);
 Route::any('pay_units',[billingController::class,'payment_units']);
 
-Route::get('relation', function () {
-    return view('Billing_file.Relationship_number');
-});
-Route::any('relation_set',[billingController::class,'opt']);
 
+Route::any('relation_set',[billingController::class,'opt']);
 Route::any('relation_no',[billingController::class,'relation_no']);
 
-Route::get('emp', function () {
-    return view('Billing_file.EMP');
-});
+Route::any('emp',[billingController::class,'emp_user']);
 Route::any('emp_user',[billingController::class,'emp']);
+Route::any('emp_import',[billingController::class,'emp_import']);
 
-Route::get('branch', function () {
-    return view('Billing_file.Branches');
-});
+Route::any('branch',[billingController::class,'show_branches']);
 Route::any('branch_add',[billingController::class,'branches']);
 
 
 //////////////////////////////////////////////////////////////////show master data in pop_up//////////////////////////////////////
 Route::any('show',[billingController::class,'show']);
 Route::any('popup/{id}',[billingController::class,'popup']);
+Route::any('edit_popup/{id}',[billingController::class,'edit_popup']);
+Route::any('editting',[billingController::class,'editting']);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
+Route::any('show_number_details',[billingController::class,'show_details']);
 Route::any('mini_master',[billingController::class,'mini_master']);
+Route::any('import',[billingController::class,'mini_import']);
+Route::any('mini_Export',[billingController::class,'mini_Export']);
+Route::any('mini_popup/{id}',[billingController::class,'minipopup']);
+Route::any('updatemini',[billingController::class,'updatemini']);
 
 Route::any('mini_insert',[billingController::class,'mini_insert']);
 
 Route::any('append_data',[billingController::class,'append_data']);
+
 Route::any('mini_int',[billingController::class,'mini_int']);
+Route::any('full_details',[billingController::class,'full_details']);
+/////////////////////////////////////////////////////////////////////////Monthly table show///////////////////////
+Route::get('monthly_table_show', function () {
+    return view('Billing_file.monthly_table');
+});
+
+Route::any('monthly_table_data',[billingController::class,'monthly_table_data']);
+
+Route::any('monthlya_data_save',[billingController::class,'monthlya_data_save']);
+Route::any('img_show',[billingController::class,'img_show']);
 
 
+///////////////////////////////////////////////////////////////////////End monthly table////////////////////////////////////////
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/index', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);

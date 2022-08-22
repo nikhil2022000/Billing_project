@@ -40,7 +40,7 @@
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
                                     <!-- Field wrapper start -->
                                     <div class="field-wrapper">
-                                    <select class="form-select" id="formSelect" name="sr_no">
+                                    <select class="form-select" id="formSelect" name="sr_no" required>
                                     <option value=" ">select</option>
                                         @foreach($id as $srno)
 											<option value="{{$srno->sr_no}}">{{$srno->sr_no}}</option>
@@ -53,13 +53,13 @@
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
                                     <!-- Field wrapper start -->
                                     <div class="field-wrapper">
-                                    <select class="form-select" id="formSelect" name="status">
-                                            <option value="">Select</option>
-                                            <option value="Active">Active</option>
-                                            <option value="Hold">Hold</option>
-                                            <option value="suspended">suspended</option>
-                                            <option value="surrendered">surrendered</option>
-                                        </select>
+                                    <select class="form-select" id="formSelect" name="status" required>
+                                        <option value="">Select</option>
+                                        <option value="Active">Active</option>
+                                        <option value="Hold">Hold</option>
+                                        <option value="suspended">suspended</option>
+                                        <option value="surrendered">surrendered</option>
+                                    </select>
                                         <div class="field-placeholder">Status</div>
                                     </div>
                                     <!-- Field wrapper end -->
@@ -82,7 +82,7 @@
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
                                     <!-- Field wrapper start -->
                                     <div class="field-wrapper">
-                                        <input type="number" class="form-control" placeholder=" Enter Number " name="number">
+                                        <input type="number" class="form-control" placeholder=" Enter Number " name="number"  required>
                                         <div class="field-placeholder">Number</div>
                                     </div>
                                     <!-- Field wrapper end -->
@@ -90,7 +90,7 @@
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
                                     <!-- Field wrapper start -->
                                     <div class="field-wrapper">
-                                    <input type="text" class="form-control" placeholder=" Enter Plan Details " name="plan_details">
+                                    <input type="text" class="form-control" placeholder=" Enter Plan Details " name="plan_details" required>
                                         <div class="field-placeholder">Plan Details</div>
                                     </div>
                                     <!-- Field wrapper end -->
@@ -98,7 +98,7 @@
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
                                     <!-- Field wrapper start -->
                                     <div class="field-wrapper">
-                                        <select class="form-select" id="formSelect" name="branch_location">
+                                        <select class="form-select" id="formSelect" name="branch_location" required>
                                             <option value="">Select</option>
                                             @foreach($branch as $bran)
 											<option value="{{$bran->id}}">{{$bran->branch_name}}</option>
@@ -121,7 +121,7 @@
 
                                     <!-- Field wrapper start -->
                                     <div class="field-wrapper">
-                                    <button type="submit" class="btn btn-primary" style="margin-left: 170px;">Submit</button>
+                                    <button type="submit" class="btn btn-primary" style="margin-left: 275px;">Submit</button>
                                     </div>
                                     <!-- Field wrapper end -->
 
@@ -164,11 +164,20 @@
                                         <div class="field-placeholder">Month</div>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
 
                                     <!-- Field wrapper start -->
                                     <div class="field-wrapper">
-                                    <button type="submit" class="btn btn-primary" style="margin-left: 170px;">Submit</button>
+                                    <button type="submit" class="btn btn-primary" style="margin-left: 100px;">Submit</button>
+                                    </div>
+                                    <!-- Field wrapper end -->
+
+                                </div>
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+
+                                    <!-- Field wrapper start -->
+                                    <div class="field-wrapper">
+                                    <a href="/number_details_sample" class="btn btn-primary" style="margin-left: 40px; width: 120px">Sample dow</a>
                                     </div>
                                     <!-- Field wrapper end -->
 

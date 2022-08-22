@@ -26,7 +26,7 @@
                                 @csrf
                                 <!-- Field wrapper start -->
                                 <div class="field-wrapper">
-                                        <select class="form-select" id="formSelect" name="operator">
+                                        <select class="form-select" id="formSelect" name="operator" required>
 													@foreach($dat as $data)
 														
 														<option value="{{$data->id}}">{{$data->operator}}</option>
@@ -41,7 +41,7 @@
 
                                 <!-- Field wrapper start -->
                                 <div class="field-wrapper">
-                                    <input type="number" class="form-control" placeholder=" Enter Number" name="number">
+                                    <input type="number" class="form-control" placeholder=" Enter Number" name="number" required>
                                     <div class="field-placeholder">Relationship Number</div>
                                 </div>
                                 <!-- Field wrapper end -->

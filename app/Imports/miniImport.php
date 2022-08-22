@@ -28,6 +28,8 @@ public function headingRow(): int
     */
     public function model(array $row)
     {
+        $exists =  master_data::where('sr_no', '=', $row['sr_no'])->exists();
+        if (!$exists){
         $exist =  mini_master::where('number', '=', (float)$row['number'])->first();
         $name =  emp_users::where('name', '=', $row['assigned_to'])->first();
         
@@ -60,6 +62,7 @@ public function headingRow(): int
     }
     }
      }
+    }
     }
 
 

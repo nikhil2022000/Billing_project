@@ -11,6 +11,7 @@ class monthlly_data extends Model
     protected $table= 'monthly_billing_data';
     protected $fillable = [
         'billable_id',
+        'relationship_no',
         'operator',
         'operator_type',
         'number_of_connection',

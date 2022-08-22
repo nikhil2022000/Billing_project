@@ -27,7 +27,7 @@
                                 <!-- Field wrapper start -->
                                 <div class="field-wrapper">
                                     <input type="text" class="form-control" placeholder=" Enter Branch Name"
-                                        name="branch_name">
+                                        name="branch_name" required>
                                     <div class="field-placeholder">Branch Name</div>
                                 </div>
                                 <!-- Field wrapper end -->

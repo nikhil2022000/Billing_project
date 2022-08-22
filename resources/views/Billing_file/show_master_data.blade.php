@@ -691,7 +691,7 @@
 						var key = Object.keys(this);
 						var data = this;
                         // alert(id);
-                       if(id.indexOf(data.id) != -1){
+                       if(id == data.id){
                         $('#3').html(data.name);
                        }
             });    
@@ -699,7 +699,7 @@
 						var key = Object.keys(this);
 						var da = this;
                         // alert(id);
-                       if(opt.indexOf(da.id) != -1){
+                       if(opt == da.id){
                         $('#13').html(da.operator);
                        }
             });    
@@ -707,7 +707,7 @@
 						var key = Object.keys(this);
 						var branch = this;
                         // alert(id);
-                       if(loca.indexOf(branch.id) != -1){
+                       if(loca == branch.id) {
                         $('#28').html(branch.branch_name);
                        }
             });  
@@ -715,7 +715,7 @@
 						var key = Object.keys(this);
 						var relat = this;
                         // alert(id);
-                       if(relatio.indexOf(relat.id) != -1){
+                       if(relatio == relat.id){
                         // $('#bb').val(branch.branch_name);
                         $('#20').html(relat.number);
                        }
@@ -723,8 +723,8 @@
             $.each(response['payment_unit'], function () {
 						var key = Object.keys(this);
 						var payment = this;
-                        // alert(id);
-                       if(pay.indexOf(payment.id) != -1){
+                        // alert(pay);
+                       if(pay == payment.id ){
                         $('#6').html(payment.unit_name);
                         
                        }

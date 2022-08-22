@@ -21,7 +21,7 @@
                                     {{ session()->get('message') }}
                                 </div>
                             @endif
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
                             <form method="POST" action="{{url('emp_user')}}">
                                 @csrf
                                 <!-- Field wrapper start -->
@@ -32,7 +32,7 @@
                                 <!-- Field wrapper end -->
 
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
 
                                 <!-- Field wrapper start -->
                                 <div class="field-wrapper">
@@ -42,26 +42,20 @@
                                 <!-- Field wrapper end -->
 
                             </div>
-
-                        </div>
-                        <!-- Row end -->
-                        <div class="row gutters">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-
-                            </div>
-
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
 
                                 <!-- Field wrapper start -->
                                 <div class="field-wrapper">
                                     <button type="submit" class="btn btn-primary"
-                                        style="margin-left: 359px;">Submit</button>
+                                        style="margin-left: 0px;">Submit</button>
                                 </div>
                                 <!-- Field wrapper end -->
 
                             </div>
 
                         </div>
+                        <!-- Row end -->
+                       
                         </form>
 
                         <form action="{{url('emp_import')}}" method="POST" enctype="multipart/form-data">
@@ -74,11 +68,20 @@
                                         <div class="field-placeholder">Import Number Details</div>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
 
                                     <!-- Field wrapper start -->
                                     <div class="field-wrapper">
                                     <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                    <!-- Field wrapper end -->
+
+                                </div>
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+
+                                    <!-- Field wrapper start -->
+                                    <div class="field-wrapper">
+                                    <a href="/user_sample" class="btn btn-primary" style="margin-left: 40px; width: 120px">Sample dow</a>
                                     </div>
                                     <!-- Field wrapper end -->
 

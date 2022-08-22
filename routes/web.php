@@ -78,6 +78,10 @@ Route::any('monthly_table_data',[billingController::class,'monthly_table_data'])
 
 Route::any('monthlya_data_save',[billingController::class,'monthlya_data_save']);
 Route::any('img_show',[billingController::class,'img_show']);
+Route::any('master_sample',[billingController::class,'master_sample']);
+Route::any('number_details_sample',[billingController::class,'number_details_sample']);
+Route::any('user_sample',[billingController::class,'user_sample']);
+
 
 
 ///////////////////////////////////////////////////////////////////////End monthly table////////////////////////////////////////

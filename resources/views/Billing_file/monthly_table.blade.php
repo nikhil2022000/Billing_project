@@ -69,6 +69,7 @@
                                                 
                                                     <tr>
                                                         <th>Billable Id</th>
+                                                        <th>Relationship_number</th>
                                                         <th>operator</th>
                                                         <th>Operator Type</th>
                                                         <th>No OF Connection</th>                                          
@@ -151,7 +152,7 @@ $('#monthly_data').submit(function(e) {
                             // var img = `"<img src="/storage/upload/'${monthly_save.hardcopy_invoice}"`;
                             //  alert(img);         
                                
-                                $("#copy-print-csv tbody").append("<tr><td>" + monthly_save.billable_id + "</td><td>" + monthly_save.operator + "</td><td>" + monthly_save.operator_type + "</td><td>" +  monthly_save.number_of_connection+ "</td><td>" + monthly_save.payment_unit + "</td><td>" + monthly_save.monthly_rental + "</td><td>" + monthly_save.usages + "</td><td>" + monthly_save.gst + "</td><td>" + monthly_save.tds + "</td><td>" + monthly_save.invoice_number + "</td><td>" + monthly_save.bill_date + "</td><td>" + monthly_save.due_date + "</td><td>  <a href="+img+" target='_blank'>View</a></td><td><input type='checkbox' class ='checkbox' checked disabled></td><td><button class='btn btn-primary' style='padding:2px;background-color:blue;'>varified</button></td></tr>");
+                                $("#copy-print-csv tbody").append("<tr><td>" + monthly_save.billable_id + "</td><td>" + monthly_save.relationship_no + "</td><td>" + monthly_save.operator + "</td><td>" + monthly_save.operator_type + "</td><td>" +  monthly_save.number_of_connection+ "</td><td>" + monthly_save.payment_unit + "</td><td>" + monthly_save.monthly_rental + "</td><td>" + monthly_save.usages + "</td><td>" + monthly_save.gst + "</td><td>" + monthly_save.tds + "</td><td>" + monthly_save.invoice_number + "</td><td>" + monthly_save.bill_date + "</td><td>" + monthly_save.due_date + "</td><td>  <a href="+img+" target='_blank'>View</a></td><td><input type='checkbox' class ='checkbox' checked disabled></td><td><button class='btn btn-primary' style='padding:2px;background-color:blue;'>varified</button></td></tr>");
                             }
 								
 							
@@ -161,7 +162,7 @@ $('#monthly_data').submit(function(e) {
                             if(uq_id.indexOf(val.sr_no) > -1){
 								
 							}else{
-							$("#copy-print-csv tbody").append("<tr><td>" + val.sr_no + "</td><td>" + val.operator + "</td><td>" + val.operator_type + "</td><td>" +  number_count+ "</td><td>" + val.payment_units + "</td><td>" + amount + "</td><form id='enter_data'><td><input type='text' style='width: 78px;' name='usages'></td><td><input type='text' style='width: 78px;' name='gst'></td><td><input type='text' style='width: 78px;' name='tds'></td><td><input type='text' style='width: 78px;' name='invoice_number'></td><td><input type='date' style='width: 78px;' name='billing_date'></td><td> <input type='date' style='width: 78px;' name='due_date'></td><td><input type='file' style='width: 78px;' name='hardcopy_invoice' class='fils'></td><td><input type='checkbox' class ='checkbox'></td></form><td><button class='btn btn-primary buttons'  style='padding:2px;background-color: #f44336;'>Unvarified</button></td></tr>");
+							$("#copy-print-csv tbody").append("<tr><td>" + val.sr_no + "</td><td>" + val.relation_no + "</td><td>" + val.operator + "</td><td>" + val.operator_type + "</td><td>" +  number_count+ "</td><td>" + val.payment_units + "</td><td>" + amount + "</td><form id='enter_data'><td><input type='text' style='width: 78px;' name='usages'></td><td><input type='text' style='width: 78px;' name='gst'></td><td><input type='text' style='width: 78px;' name='tds'></td><td><input type='text' style='width: 78px;' name='invoice_number'></td><td><input type='date' style='width: 78px;' name='billing_date'></td><td> <input type='date' style='width: 78px;' name='due_date'></td><td><input type='file' style='width: 78px;' name='hardcopy_invoice' class='fils'></td><td><input type='checkbox' class ='checkbox'></td></form><td><button class='btn btn-primary buttons'  style='padding:2px;background-color: #f44336;'>Unvarified</button></td></tr>");
 							}
                         } 
                     }); 
@@ -185,25 +186,27 @@ $('#monthly_data').submit(function(e) {
 $('#copy-print-csv tbody tr td input[type="checkbox"]').click(function() {
 
 var ids = $(this).closest('tr').find('td').eq(0).text();
-var operator = $(this).closest('tr').find('td').eq(1).text();
-var operator_type = $(this).closest('tr').find('td').eq(2).text();
-var number_count = $(this).closest('tr').find('td').eq(3).text();
-var payment_units = $(this).closest('tr').find('td').eq(4).text();
-var amount = $(this).closest('tr').find('td').eq(5).text();
-var usages = $(this).closest('tr').find("td:eq(6) input[type='text']"). val();
-var gst = $(this).closest('tr').find("td:eq(7) input[type='text']"). val();
-var tds = $(this).closest('tr').find("td:eq(8) input[type='text']"). val();
-var invoice_number = $(this).closest('tr').find("td:eq(9) input[type='text']"). val();
-var billing_date = $(this).closest('tr').find("td:eq(10) input[type='date']"). val();
-var due_date = $(this).closest('tr').find("td:eq(11) input[type='date']"). val();
-var hardcopy_invoice = $(this).closest('tr').find('td').eq(12).children('.fils')[0].files;
+var relation_no = $(this).closest('tr').find('td').eq(1).text();
+var operator = $(this).closest('tr').find('td').eq(2).text();
+var operator_type = $(this).closest('tr').find('td').eq(3).text();
+var number_count = $(this).closest('tr').find('td').eq(4).text();
+var payment_units = $(this).closest('tr').find('td').eq(5).text();
+var amount = $(this).closest('tr').find('td').eq(6).text();
+var usages = $(this).closest('tr').find("td:eq(7) input[type='text']"). val();
+var gst = $(this).closest('tr').find("td:eq(8) input[type='text']"). val();
+var tds = $(this).closest('tr').find("td:eq(9) input[type='text']"). val();
+var invoice_number = $(this).closest('tr').find("td:eq(10) input[type='text']"). val();
+var billing_date = $(this).closest('tr').find("td:eq(11) input[type='date']"). val();
+var due_date = $(this).closest('tr').find("td:eq(12) input[type='date']"). val();
+var hardcopy_invoice = $(this).closest('tr').find('td').eq(13).children('.fils')[0].files;
 var month = $('.mon').val();
-var checkbox = $(this).closest('tr').find("td:eq(13) input[type='checkbox']"). val();
+var checkbox = $(this).closest('tr').find("td:eq(14) input[type='checkbox']"). val();
  
 var form_data = new FormData();
 
  form_data.append('file', hardcopy_invoice[0]);
  form_data.append('sr_no', ids);
+ form_data.append('relation_no', relation_no);
  form_data.append('operator', operator);
  form_data.append('operator_type', operator_type);
  form_data.append('number_count', number_count);

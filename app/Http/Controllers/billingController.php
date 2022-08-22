@@ -20,6 +20,7 @@ use DB;
 use Excel;
 use Illuminate\Http\Request;
 use Response;
+use File;
 
 class billingController extends Controller
 {
@@ -35,15 +36,23 @@ class billingController extends Controller
 
         return view('Billing_file.operators', ['dat' => $data,'oprates' => $oprat]);
     }
+    /////////////////////////////////////////////////////////////////////operators/////////////////////////////////////////
     public function operators(Request $req)
     {
         // echo"<pre>";print_r($_POST);die;
+       $exists =  operators::where('operator', '=', $req->operator)->exists();
+if(!$exists){
         $data = new operators;
         $data->operator = $req->operator;
         $data->billing_cat = $req->billing_cat;
         $data->save();
         return redirect()->back()->with('message', 'Data successfully insert');
+    }else{
+        return redirect()->back()->with('message', 'Data Already inserted');
+
     }
+}
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
     public function units(Request $req)
     {
         $units = DB::table('payment_units')->get();
@@ -51,14 +60,20 @@ class billingController extends Controller
         //echo"<pre>";print_r($pay);die;
         return view('Billing_file.payment_units', ['payment' => $pay]);
     }
+    //////////////////////////////////////////////////////////////////payment units//////////////////////////////////////////
     public function payment_units(Request $req)
     {
-
+        $exists =  payment_units::where('unit_name', '=', $req->unit_name)->exists();
+        if(!$exists){
         $data = new payment_units;
         $data->unit_name = $req->unit_name;
         $data->save();
         return redirect()->back()->with('message', 'Data successfully insert');
+    }else{
+        return redirect()->back()->with('message', 'Data Already inserted');
     }
+}
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function opt()
     {
         //dd('hhhh');
@@ -71,14 +86,22 @@ class billingController extends Controller
 
         return view('Billing_file.Relationship_number', ['dat' => $data ,'relation'=>$rel]);
     }
+    //////////////////////////////////////////////////////////////relation_number///////////////////////////
     public function relation_no(Request $req)
     {
+        $exists =  relation_number::where('number', '=', $req->number)->exists();
+        if(!$exists){
         $data = new relation_number;
         $data->operator = $req->operator;
         $data->number = $req->number;
         $data->save();
         return redirect()->back()->with('message', 'Data successfully insert');
+    }else{
+        return redirect()->back()->with('message', 'Data Already inserted');
+
     }
+}
+    //////////////////////////////////////////////////////////////////////////////////
     public function emp_user(Request $req)
     {
         $emp = DB::table('emp_users')->get();
@@ -91,27 +114,42 @@ class billingController extends Controller
         Excel::import(new empImport, $req->file('filedata'));
         return redirect()->back();
     }
+    ///////////////////////////////////////////////////////////////////////////////users/////////////////////////
     public function emp(Request $req)
     {
+        $exists =  emp_users::where('empid', '=', $req->empid)->exists();
+        if(!$exists){
         $data = new emp_users;
         $data->empid = $req->empid;
         $data->name = $req->name;
         $data->save();
         return redirect()->back()->with('message', 'Data successfully insert');
+    }else{
+        return redirect()->back()->with('message', 'Data Already inserted');
     }
+}
+    ///////////////////////////////////////////////////////////////////////////////////////
     public function show_branches(Request $req)
     {
         $branch = DB::table('branches')->get();
         $brh = json_decode(json_encode($branch));
         return view('Billing_file.Branches', ['branch' => $brh]);
     }
+    /////////////////////////////////////////////////////////////branches/////////////////////////////////////////
     public function branches(Request $req)
     {
+        $exists =  branch::where('branch_name', '=', $req->branch_name)->exists();
+        if(!$exists){
         $data = new branch;
         $data->branch_name = $req->branch_name;
         $data->save();
         return redirect()->back()->with('message', 'Data successfully insert');
+    }else{
+        return redirect()->back()->with('message', 'Data Already inserted');
+
     }
+}
+    ///////////////////////////////////////////////////////////////////////////////
     public function show_catg(Request $req)
     {
         $da = DB::table('category')->get();
@@ -125,11 +163,17 @@ class billingController extends Controller
     public function bill_categories(Request $req)
     {
        // dd('dd');
+       $exists =  bill_categories::where('category_name', '=', $req->category_name)->exists();
+       if(!$exists){
         $data = new bill_categories;
         $data->category_name = $req->category_name;
         $data->save();
         return redirect()->back()->with('message', 'Data successfully insert');
+    }else{
+        return redirect()->back()->with('message', 'Data Already inserted');
     }
+}
+    ////////////////////////////////////////////////////////////////////////////////////////categories end///////////////////
     public function master_Export(Request $req){
         //  echo"<pre>";print_r('jj');die;
 
@@ -705,6 +749,7 @@ public function monthlya_data_save(Request $req){
     if(!$exists){    
     $data = new monthlly_data;
     $data->billable_id = $req->sr_no;
+    $data->relationship_no = $req->relation_no;
     $data->operator =  $req->operator;
     $data->operator_type =$req->operator_type;
     $data->number_of_connection = $req->number_count;
@@ -729,4 +774,24 @@ public function monthlya_data_save(Request $req){
     return redirect()->back(); 
 }
 
+public function master_sample(){
+    $filePath = public_path("/billing_img/master_sample.xlsx");
+    $headers = ['Content-Type: application/xlsx'];
+    $fileName = time().'.xlsx';
+    	return response()->download($filePath, $fileName, $headers);
+}
+
+public function number_details_sample(){
+    $filePath = public_path("/billing_img/number_details.xlsx");
+    $headers = ['Content-Type: application/xlsx'];
+    $fileName = time().'.xlsx';
+    	return response()->download($filePath, $fileName, $headers);
+}
+
+public function user_sample(){
+    $filePath = public_path("/billing_img/user_sample.xlsx");
+    $headers = ['Content-Type: application/xlsx'];
+    $fileName = time().'.xlsx';
+    	return response()->download($filePath, $fileName, $headers);
+}
 }

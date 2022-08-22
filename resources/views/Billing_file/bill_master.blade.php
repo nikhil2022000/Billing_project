@@ -33,21 +33,33 @@
                                         <div class="field-placeholder">Import Number Details</div>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
 
                                     <!-- Field wrapper start -->
                                     <div class="field-wrapper">
-                                    <button type="submit" class="btn btn-primary" style="margin-left: 78px; width: 202px">Submit</button>
+                                    <button type="submit" class="btn btn-primary" style="margin-left: 40px; width: 150px">Submit</button>
+                                
                                     </div>
                                     <!-- Field wrapper end -->
 
                                 </div>
+								</form>
+								<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+
+									<!-- Field wrapper start -->
+									<div class="field-wrapper">
+									<a href="/master_sample" class="btn btn-primary" style="margin-left: 40px; width: 120px">Sample dow</a>
+
+									</div>
+									<!-- Field wrapper end -->
+
+									</div>
                                
                             </div>
 
                         </div>
 
-                    </form>
+                    
                 </div>
                
                 <!-- Place your content here -->

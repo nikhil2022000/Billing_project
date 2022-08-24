@@ -37,7 +37,7 @@
 											<option value="FCC">FCC</option>
 											<option value="FCC Agchem">FCC Agchem</option>
 											<option value="FPCL">FPCL</option>
-											<option value="FPCL">Ventures</option>
+											<option value="ventures">Ventures</option>
 										</select>
                                     <div class="field-placeholder">Unit Name </div>
                                 </div>

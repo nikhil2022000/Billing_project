@@ -405,11 +405,10 @@ if(!$exists){
         $datas = $rows[0];
         //dd($datas);
          foreach($datas as $data){
-        // dd($data);
+        // dd($data[6]);
 
            $exists =  emp_users::where('name', '=', $data[2])->exists();
-           $branc =   branch::where('branch_name', '=', $data[27])->exists();
-        //    dd(!$branc);
+          //    dd(!$branc);
         //    if(!$branc){
         //     // dd($data);
         //     $duplicat[] = $data;

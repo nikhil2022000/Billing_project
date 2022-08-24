@@ -408,13 +408,7 @@ if(!$exists){
         // dd($data[6]);
 
            $exists =  emp_users::where('name', '=', $data[2])->exists();
-          //    dd(!$branc);
-        //    if(!$branc){
-        //     // dd($data);
-        //     $duplicat[] = $data;
-        //     unset($duplicat[0]);
-        //     }
-        //     dd($duplicat);  
+           
            if(!$exists){
             $duplicat[] = $data;
             unset($duplicat[0]);
